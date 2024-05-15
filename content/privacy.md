@@ -2,8 +2,8 @@
 title: "Privacy Policy"
 description: "Privacy policy of our website"
 summary: "Details about the data we collect and how we use it"
-date: 2023-09-07T17:19:07+02:00
-lastmod: 2023-09-07T17:19:07+02:00
+date: 2024-05-15T16:35:07+02:00
+lastmod: 2024-05-15T16:35:07+02:00
 draft: false
 type: "legal"
 seo:
