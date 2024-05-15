@@ -57,6 +57,7 @@
                   <h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
                   <p>{{ .Params.summary | safeHTML }}</p>
                   {{ partial "main/blog-meta.html" . -}}
+                  <div class="giscus"></div>
                 </article>
               </div>
             </div>
@@ -65,7 +66,6 @@
       </div>
     </section>
   </div>
-  <div class="giscus"></div>
   {{ end -}}
 {{ end -}}
 {{ end }}
