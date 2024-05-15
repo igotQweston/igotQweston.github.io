@@ -84,17 +84,3 @@ copyRight = "Copyright (c) 2020-2024 Hyas"
   hint = "photo"
   quality = 85
   resampleFilter = "Lanczos"
-
-[params.giscus]
-repo="igotqweston/igotqweston.github.io"
-repoID="R_kgDOIFOmhw"
-category="Site Comments"
-categoryID="DIC_kwDOIFOmh84CfXtU"
-mapping="og:title"
-dataStrict="1"
-reactionsEnabled="1"
-emit-metadata="0"
-input-position="top"
-theme="preferred_color_scheme"
-lang="en"
-loading="lazy"
