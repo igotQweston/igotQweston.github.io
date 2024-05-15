@@ -29,6 +29,6 @@ Please note that we do not use this data for advertising purposes, nor do we sel
 
 ### Blocking the Tracker
 
-You have the option to block our analytics tracker. However, please note that the tracker is enabled by default and will remain so unless you choose to block it.
+You have the option to block our tracker and we will respect your decision to do so. However, please note that the tracker is enabled by default and cannot be blocked without using external tools.
 
-By using our website, you consent to our privacy policy.
+**By using our website, you consent to our privacy policy.**
