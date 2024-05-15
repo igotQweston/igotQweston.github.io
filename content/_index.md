@@ -1,7 +1,7 @@
 ---
 title: "Welcome to igotQweston"
 description: ""
-lead: "Hub for Fawkes (igotQweston) projects and his personal blog."
+lead: "Hub for Fawkes' (igotQweston) projects and his personal blog."
 date: 2024-05-15T18:07:00+07:00
 lastmod: 2024-05-15T18:07:00+07:00
 draft: false
