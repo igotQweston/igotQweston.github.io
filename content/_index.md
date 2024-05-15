@@ -1,9 +1,9 @@
 ---
-title: "Welcome to Doks"
+title: "Welcome to igotQweston"
 description: ""
-lead: "Congrats on setting up a new Doks project!"
-date: 2023-09-07T16:33:54+02:00
-lastmod: 2023-09-07T16:33:54+02:00
+lead: "Hub for Fawkes (igotQweston) projects and his personal blog."
+date: 2024-05-15T18:07:00+07:00
+lastmod: 2024-05-15T18:07:00+07:00
 draft: false
 seo:
   title: "Welcome to igotQweston" # custom title (optional)
@@ -11,5 +11,3 @@ seo:
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
 ---
-
-frfr
