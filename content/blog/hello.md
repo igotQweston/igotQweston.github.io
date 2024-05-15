@@ -6,9 +6,9 @@ date: 2023-09-07T16:27:22+02:00
 lastmod: 2023-09-07T16:27:22+02:00
 draft: false
 weight: 50
-categories: []
-tags: []
-contributors: []
+categories: ["test"]
+tags: ["tags"]
+contributors: ["guy"]
 pinned: false
 homepage: false
 seo:
