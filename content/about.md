@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 description: "Get to know me a bit better on this page."
-lead: "Get to know me a bit better on this page.s"
+lead: "Get to know me a bit better on this page."
 date: 
 lastmod: 
 draft: false
