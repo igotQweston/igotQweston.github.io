@@ -131,13 +131,13 @@
             {{ else -}}
               <li class="nav-item">
                 <a class="nav-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if $active }} aria-current="true"{{ end }}>
-                  {{ if .Pre }}
+                  {{ if .Pre -}}
                     {{ .Pre }}
-                  {{ end }}  
+                  {{ end -}}  
                   {{ .Name }}
-                  {{ if .Aff }}
+                  {{ if .Aff -}}
                     {{ .Aff }}
-                  {{ end }}
+                  {{ end -}}
                 </a>
               </li>
             {{ end -}}
