@@ -135,6 +135,9 @@
                     {{ .Pre | safeHTML }}
                   {{ end -}}  
                   {{ .Name }}
+                  {{ if .Aff -}}
+                    {{ .Aff | safeHTML }}
+                  {{ end -}}
                 </a>
               </li>
             {{ end -}}
