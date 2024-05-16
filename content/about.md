@@ -2,8 +2,6 @@
 title: "About Me"
 description: "Get to know me a bit better on this page."
 lead: "Get to know me a bit better on this page."
-date: 
-lastmod: 
 draft: false
 type: "about"
 image: https://igotqweston.github.io/files/Patchy_Fumo_reads_SICP-2.jpg
