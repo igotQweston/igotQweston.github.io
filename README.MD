@@ -1,7 +1,6 @@
 # Fawkes (aka igotQweston).github.io (WIP)
 
 [![GitHub Pages](https://github.com/igotQweston/igotQweston.github.io/actions/workflows/deploy-github.yml/badge.svg)](https://github.com/igotQweston/igotQweston.github.io/actions/workflows/deploy-github.yml)
-[![pages-build-deployment](https://github.com/igotQweston/igotQweston.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/igotQweston/igotQweston.github.io/actions/workflows/pages/pages-build-deployment)
 [![Deploying Files to Pages](https://github.com/igotQweston/files/actions/workflows/deploy.yml/badge.svg)](https://github.com/igotQweston/files/actions/workflows/deploy.yml)
 
 Welcome to the official repository for Fawkes' (aka igotQweston's) GitHub.io website! This website serves as a hub for various repositories' documentation and a platform for blog posts.
