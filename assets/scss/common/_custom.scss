@@ -1,5 +1,8 @@
 // Put your custom SCSS code here
 .circle-cropped {
     border-radius: 50%;
-    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 100%;
   }
