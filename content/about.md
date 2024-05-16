@@ -25,7 +25,7 @@ I also use Arch btw.
 
 I'm an audiophile with a special interest in budget Chi-Fi IEMs. Especially the $100 range and the very competitive $20 range. I'm always on the lookout for the next best IEM for the price. My current favorite and daily driver is the TRUTHEAR HEXA.
 
-### Rythm Game Enthusiast
+### Rhythm Game Enthusiast
 
 I'm a huge fan of rhythm games. I've been playing them for years and I'm always looking for new ones to try. I'm currently playing a lot of MaiMai DX Buddies. Used to play a lot of osu! but I've since moved to other games. Other rhythm games I play include Etterna, ADOFAI, ProSekai, Quaver, Rotaeno, and more. As much as I want to play bemani games or any other arcade rhythm games, I can't because my country has a very limited selection of rhythm games especially bemani games and other non SEGA japanese rhythm games.
 
