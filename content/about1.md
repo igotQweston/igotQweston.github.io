@@ -5,6 +5,7 @@ lead: "Get to know me a bit better on this page.s"
 date: 
 lastmod: 
 draft: false
+type: "about"
 seo:
   title: "About Me" # custom title (optional)
   description: "Get to know me a bit better on this page." # custom description (recommended)
