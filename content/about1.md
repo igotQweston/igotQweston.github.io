@@ -6,7 +6,7 @@ date:
 lastmod: 
 draft: false
 type: "about"
-image: = "https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg"
+image: https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg
 seo:
   title: "About Me" # custom title (optional)
   description: "Get to know me a bit better on this page." # custom description (recommended)
