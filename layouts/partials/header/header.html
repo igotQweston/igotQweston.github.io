@@ -20,7 +20,7 @@
     <!-- Site title -->
     <a class="navbar-brand me-auto me-lg-3" href="{{ relLangURL "" }}">
       {{ if .Site.Params.logo -}}
-        <span class="visually-hidden">{{ .Site.Title }}</span>{{ Site.Params.logo | safeHTML }}
+        <span class="visually-hidden">{{ .Site.Title }}</span>{{ site.Params.logo | safeHTML }}
         {{ end -}}
       {{ end -}}
       {{ else }}
