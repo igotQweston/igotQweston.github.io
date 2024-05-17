@@ -139,8 +139,7 @@
                 <a class="nav-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if $active }} aria-current="true"{{ end }}{{ if .Params.target -}} target="{{ .Params.target }}"{{ end -}}>
                   {{ if .Pre -}}
                     {{ .Pre | safeHTML }}
-                  {{ end -}}
-                  {{ .Name }}
+                  {{ end -}}{{ .Name }}
                   {{ if .Post -}}
                     {{ .Post | safeHTML }}
                   {{ end -}}
