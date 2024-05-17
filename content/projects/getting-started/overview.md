@@ -5,7 +5,6 @@ summary: ""
 date: 2023-09-07T16:04:48+02:00
 lastmod: 2023-09-07T16:04:48+02:00
 draft: false
-layout: "docs"
 weight: 810
 toc: true
 seo:
