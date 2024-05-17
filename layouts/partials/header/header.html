@@ -134,7 +134,7 @@
                   {{ if .Pre -}}
                     {{ .Pre | safeHTML }}
                   {{ end -}}  
-                  {{ .Name }}
+                  {{ .Name  | safeHTML }}
                   {{ if .Post -}}
                     {{ .Post | safeHTML }}
                   {{ end -}}
