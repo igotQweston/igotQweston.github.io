@@ -1,11 +1,11 @@
 ---
-title: "Ricing"
+title: "Bots"
 description: ""
 summary: ""
 date: 2024-05-21T04:21:59+07:00
 lastmod: 2024-05-21T04:21:59+07:00
 draft: false
-weight: 1000
+weight: 900
 toc: true
 sidebar:
   collapsed: true
