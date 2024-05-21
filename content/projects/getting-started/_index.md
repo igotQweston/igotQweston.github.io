@@ -2,8 +2,8 @@
 title: "Getting Started"
 description: ""
 summary: ""
-date: 2023-09-07T16:06:50+02:00
-lastmod: 2023-09-07T16:06:50+02:00
+date: 2024-05-21T09:47:43+07:00
+lastmod: 2024-05-21T09:47:43+07:00
 draft: false
 weight: 800
 toc: true
