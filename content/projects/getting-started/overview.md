@@ -14,8 +14,6 @@ seo:
   noindex: false # false (default) or true
 ---
 
-## Overview
-
 This serves as a collection to the various projects I've worked on. Each project is accompanied by a brief description and links to its website and documentation.
 
 ### How to Use This List
