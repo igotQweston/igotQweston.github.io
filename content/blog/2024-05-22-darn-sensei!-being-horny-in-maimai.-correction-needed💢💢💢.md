@@ -3,12 +3,13 @@ title: Darn Sensei! Being Horny in Maimai. Correction Needed💢💢💢
 description: Blue Archive sensei being degens on maimai.
 summary: Blue Archive sensei being degens on maimai.
 date: 2024-05-22T06:01:44.606Z
-lastmod: ""
+lastmod: 2024-05-22T06:09:22.111Z
 draft: false
 weight: 50
 categories: []
 tags: []
-contributors: ["Fawkes ND"]
+contributors:
+    - Fawkes ND
 pinned: false
 seo:
     title: ""

@@ -29,7 +29,7 @@
         {
           "title": "lastmod",
           "name": "lastmod",
-          "type": "string"
+          "type": "datetime"
         },
         {
           "title": "draft",
