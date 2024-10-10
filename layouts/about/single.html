@@ -1,6 +1,12 @@
 {{ define "main" }}
 <div class="row row-about justify-content-center align-items-center">
-  <div class="col-md-16 col-lg-7">
+    <article>
+      <img class="circle-cropped" src="{{ .Params.image }}">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </article>
+   
+  <!---<div class="col-md-16 col-lg-7">
     <article>
       <h1>{{ .Title }}</h1>
       {{ .Content }}
@@ -8,8 +14,8 @@
   </div>
   <div class="col-md-16 col-lg-7 text-center">
     <img class="circle-cropped" src="{{ .Params.image }}">
-  <!---<div class="col-md-16 col-lg-7"></div>
-    <div class="circle-cropped" style="background-image: url('{{ .Params.image }}')"></div>--->
-  </div>
+  <div class="col-md-16 col-lg-7"></div>
+    <div class="circle-cropped" style="background-image: url('{{ .Params.image }}')"></div>
+  </div>--->
 </div>
 {{ end }}
