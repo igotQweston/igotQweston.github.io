@@ -22,5 +22,5 @@ A fork of [PrettyCoffee/Fluidity](https://github.com/PrettyCoffee/fluidity) with
 
 ## Links
 
-[GitHub Repo](https://https://github.com/igotQweston/fluidity/)\
+[GitHub Repo](https://github.com/igotQweston/fluidity)
 [GitHub Pages Demo](https://igotqweston.github.io/fluidity)
