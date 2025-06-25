@@ -20,8 +20,8 @@ A desktop Electron app for viewing and translating [ShinyColors Enza](https://sh
 
 How it works:
 - Loads the game in a `<webview>` with a preload script.
-- The preload script injects the userscript into the page as early as possible.
 - The main process fetches the latest userscript from GitHub.
+- The preload script injects the userscript into the page as early as possible.
 
 ## Links
 
