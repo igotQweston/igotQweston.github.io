@@ -3,3 +3,4 @@ node_modules/
 public/
 resources/
 .frontmatter/
+hugo_stats.json
