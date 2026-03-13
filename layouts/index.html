@@ -35,7 +35,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="h4 mb-3">Latest Blog Posts</h2>
-            <ul class="list-unstyled d-flex flex-wrap gap-5 mb-0">
+            <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
               {{ range $latestPosts }}
                 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
@@ -49,7 +49,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="h4 mb-3">Latest Projects</h2>
-            <ul class="list-unstyled d-flex flex-wrap gap-5 mb-0">
+            <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
               {{ range $latestProjects }}
                 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
