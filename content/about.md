@@ -1,22 +1,23 @@
 ---
-title: "About Me"
-description: "Get to know me a bit better on this page."
-lead: "Get to know me a bit better on this page."
+title: About Me
+description: Get to know me a bit better on this page.
+lead: Get to know me a bit better on this page.
 draft: false
-type: "about"
+type: about
 image: https://igotqweston.github.io/files/Patchy_Fumo_reads_SICP-2.jpg
 seo:
-  title: "About Me" # custom title (optional)
-  description: "Get to know me a bit better on this page." # custom description (recommended)
-  canonical: "" # custom canonical URL (optional)
-  noindex: false # false (default) or true
+  title: About Me
+  description: Get to know me a bit better on this page.
+  canonical: ""
+  noindex: false
+lastmod: 2026-03-13T17:06:49.813Z
 ---
 
 ## Fawkes ND (igotQweston)
 
 ### A Programmer
 
-Hey! My name is Fawkes, but you might also know me as igotQweston. I'm a hobbyist programmer who loves to tinker with different languages. I code in Python, JS, and Go. You can check out some of my projects on [GitHub](https://github.com/igotQweston).\
+Hey! My name is Fawkes, but you might also know me as igotQweston or KαNiyα ☆. I'm a hobbyist programmer who loves to tinker with different languages. I code in Python, JS, and Go. You can check out some of my projects on [GitHub](https://github.com/igotQweston).\
 I also use Arch btw.
 
 ### An Audiophile
@@ -30,3 +31,7 @@ I'm a huge fan of rhythm games. I've been playing them for years and I'm always 
 ### Anime and Manga Fan
 
 Just like any good programmer and linux user, I love anime. Though I don't watch as much anime as I used to, I still enjoy watching a good anime every now and then. I'm a huge fan of the Monogatari series. I also enjoy reading manga and dabble in some light novels and visual novels. Though I'm currently addicted to thrashy isekai manga. I can't stop reading them. It's like eating instant noodles. It's bad for you but you can't stop eating them. But I'm also a fan of good isekai manga like Mushoku Tensei, Eminence in Shadow, and Youjo Senki. Outside of isekai, I also enjoy Blue Period, March Comes in Like a Lion, Sousou no Frieren, D-Frag, The 100 Girlfriends Who Really, Really, Really, Really, Really Love You, and more.
+
+### Music Lover
+
+I have a very eclectic or maybe rather weird taste in music. From Post-Rock to Noir-Jazz to sextrance to hyperflip/dariacore and more. I listen to a lot of different genres and I'm always looking for new music to listen to. Just check out my [bandcamp](https://bandcamp.com/fawkesnd) if you want to see what kind of music I listen to. I also make music myself, though I'm very shit at it also on [bandcamp](https://kaniya.bandcamp.com/).
