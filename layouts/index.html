@@ -29,6 +29,10 @@
   {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
   {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
   {{ $latestProjects := first 5 $projectPages.ByDate.Reverse }}
+  {{ $myUrl := "https://www.imood.com/" }}
+  {{ $myMood := "" }}
+  {{ $internetUrl := "https://www.imood.com/" }}
+  {{ $internetMood := "" }}
   {{ with .Params.imood.my }}
     {{ $myUrl = .url }}
     {{ $myMood = .mood }}
