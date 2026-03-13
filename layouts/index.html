@@ -6,10 +6,13 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-cta rounded-pill btn-lg my-3" href="/blog/" role="button">{{ i18n "open_blog" }}</a>
-      <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg my-3" href="/projects/getting-started/overview/" role="button">{{ i18n "get_started" }}</a>
-      <newline>
-      <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg" href="{{ .Params.guestbook.url }}" role="button">Visit Guestbook</a>
+      <div class="d-flex justify-content-center gap-3 flex-wrap my-3">
+        <a class="btn btn-primary btn-cta rounded-pill btn-lg" href="/blog/" role="button">{{ i18n "open_blog" }}</a>
+        <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg" href="/projects/getting-started/overview/" role="button">{{ i18n "get_started" }}</a>
+      </div>
+      <div class="text-center mb-3">
+        <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg" href="{{ .Params.guestbook.url }}" role="button">Visit Guestbook</a>
+      </div>
     </div>
   </div>
 </section>
@@ -34,7 +37,7 @@
             <h2 class="h4 mb-3">Latest Blog Posts</h2>
             <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
               {{ range $latestPosts }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }};</a></li>
               {{ else }}
                 <li class="text-muted">No blog posts yet.</li>
               {{ end }}
@@ -45,7 +48,7 @@
       <div class="col-12 col-lg-5">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="h4 mb-3">Projects</h2>
+            <h2 class="h4 mb-3">Latest Projects</h2>
             <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
               {{ range $latestProjects }}
                 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
