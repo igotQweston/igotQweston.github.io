@@ -35,7 +35,13 @@
         <h2 class="h4 mb-3">Latest Blog Posts</h2>
         <ul class="list-unstyled mb-0">
           {{ range $latestPosts }}
-            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            <li class="mb-3">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ $itemSummary := .Params.summary | default .Summary }}
+              {{ with $itemSummary }}
+                <p class="small text-muted mb-0">{{ . | plainify }}</p>
+              {{ end }}
+            </li>
           {{ else }}
             <li class="text-muted">No blog posts yet.</li>
           {{ end }}
