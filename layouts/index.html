@@ -6,12 +6,8 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <div class="d-flex justify-content-center gap-3 flex-wrap my-3">
-        <a class="btn btn-primary btn-cta rounded-pill btn-lg" href="/blog/" role="button">{{ i18n "open_blog" }}</a>
-        <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg" href="/projects/getting-started/overview/" role="button">{{ i18n "get_started" }}</a>
-      </div>
       <div class="text-center mb-3">
-        <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg" href="{{ .Params.guestbook.url }}" role="button">Visit Guestbook</a>
+        <a class="btn btn-primary btn-cta rounded-pill btn-lg" href="{{ .Params.guestbook.url }}" role="button">Visit Guestbook</a>
       </div>
     </div>
   </div>
@@ -43,7 +39,7 @@
   {{ end }}
   <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
     <a class="btn btn-sm btn-outline-primary rounded-pill" href="{{ $myUrl }}" target="_blank" rel="noopener noreferrer">My Mood: {{ $myMood | safeHTML }}</a>
-    <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ $internetUrl }}" target="_blank" rel="noopener noreferrer">Internet's Mood: {{ $internetMood | safeHTML }}</a>
+    <a class="btn btn-sm btn-outline-primary rounded-pill" href="{{ $internetUrl }}" target="_blank" rel="noopener noreferrer">Internet's Mood: {{ $internetMood | safeHTML }}</a>
   </div>
   <div class="container-fluid mt-4 mb-5">
     <div class="row justify-content-center g-4">
