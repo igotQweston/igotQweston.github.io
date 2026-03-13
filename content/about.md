@@ -10,10 +10,10 @@ seo:
   description: Get to know me a bit better on this page.
   canonical: ""
   noindex: false
-lastmod: 2026-03-13T17:06:49.813Z
+lastmod: 2026-03-13T17:08:06.252Z
 ---
 
-## Fawkes ND (igotQweston)
+## Fawkes ND
 
 ### A Programmer
 
