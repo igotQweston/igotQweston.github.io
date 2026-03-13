@@ -5,6 +5,68 @@
       "name": "default",
       "pageBundle": false,
       "previewPath": null,
+      "filePrefix": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "lead",
+          "name": "lead",
+          "type": "string"
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "title": "seo",
+          "name": "seo",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "title",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "title": "description",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "title": "canonical",
+              "name": "canonical",
+              "type": "string"
+            },
+            {
+              "title": "noindex",
+              "name": "noindex",
+              "type": "boolean",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "pageBundle": false,
+      "previewPath": null,
+      "filePrefix": null,
       "fields": [
         {
           "title": "title",
@@ -24,12 +86,15 @@
         {
           "title": "date",
           "name": "date",
-          "type": "datetime"
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
         },
         {
           "title": "lastmod",
           "name": "lastmod",
-          "type": "datetime"
+          "type": "datetime",
+          "isModifiedDate": true
         },
         {
           "title": "draft",
@@ -57,7 +122,93 @@
           "type": "choice",
           "choices": [
             "Fawkes ND"
+          ],
+          "multiple": true,
+          "default": []
+        },
+        {
+          "title": "pinned",
+          "name": "pinned",
+          "type": "boolean"
+        },
+        {
+          "title": "seo",
+          "name": "seo",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "title",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "title": "description",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "title": "canonical",
+              "name": "canonical",
+              "type": "string"
+            },
+            {
+              "title": "noindex",
+              "name": "noindex",
+              "type": "boolean"
+            }
           ]
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "pageBundle": false,
+      "previewPath": null,
+      "filePrefix": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "summary",
+          "name": "summary",
+          "type": "string"
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "lastmod",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "weight",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "toc",
+          "name": "toc",
+          "type": "boolean",
+          "default": true
         },
         {
           "title": "pinned",
@@ -95,20 +246,30 @@
     }
   ],
   "frontMatter.framework.id": "hugo",
+  "frontMatter.content.autoUpdateDate": true,
   "frontMatter.content.publicFolder": "static",
   "frontMatter.preview.host": "http://localhost:1313",
   "frontMatter.content.pageFolders": [
     {
       "title": "content",
-      "path": "[[workspace]]/content"
+      "path": "[[workspace]]/content",
+      "contentTypes": [
+        "default"
+      ]
     },
     {
       "title": "blog",
-      "path": "[[workspace]]/content/blog"
+      "path": "[[workspace]]/content/blog",
+      "contentTypes": [
+        "blog"
+      ]
     },
     {
       "title": "projects",
-      "path": "[[workspace]]/content/projects"
+      "path": "[[workspace]]/content/projects",
+      "contentTypes": [
+        "projects"
+      ]
     }
   ],
   "frontMatter.git.enabled": true,
