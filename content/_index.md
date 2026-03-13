@@ -1,16 +1,23 @@
 ---
-title: "Welcome to igotQweston"
+title: Welcome to igotQweston
 description: ""
-lead: "Hub for Fawkes' (aka igotQweston's) projects and his personal blog."
+lead: Hub for Fawkes' (aka igotQweston's) projects and his personal blog.
 date: 2024-05-15T18:07:00+07:00
-lastmod: 2024-05-15T18:07:00+07:00
+lastmod: 2026-03-13T18:20:04.121Z
 draft: false
 seo:
-  title: "Welcome to igotQweston" # custom title (optional)
-  description: "" # custom description (recommended)
-  canonical: "" # custom canonical URL (optional)
-  noindex: false # false (default) or true
+  title: Welcome to igotQweston
+  description: ""
+  canonical: ""
+  noindex: false
 guestbook:
-  title: "Sign My Guestbook"
-  url: "https://fawkesnd.atabook.org/"
+  title: Sign My Guestbook
+  url: https://fawkesnd.atabook.org/
+imood:
+  my:
+    url: https://www.imood.com/users/fawkesnd
+    mood: <img src="https://moods.imood.com/display/uname-fawkesnd/fg-#b3c7f/bg-#17181/imood.gif" alt="The current mood of fawkesnd at www.imood.com" border="0">
+  internet:
+    url: https://www.imood.com/imood
+    mood: <img src="https://moods.imood.com/internet/current.gif" alt="The current mood of the Internet at www.imood.com" border="0">
 ---

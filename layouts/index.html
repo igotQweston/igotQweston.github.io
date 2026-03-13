@@ -29,6 +29,27 @@
   {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
   {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
   {{ $latestProjects := first 5 $projectPages.ByDate.Reverse }}
+  {{ with .Params.imood.my }}
+    {{ $myUrl = .url}}
+    {{ $myMood = .mood}}
+  {{ end }}
+  {{ with .Params.imood.internet }}
+    {{ $internetUrl = .url}}
+    {{ $internetMood = .mood}}
+  {{ end }}
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div class="p-3 rounded border">
+          <h2 class="h5 mb-2">iMood</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-primary rounded-pill" href="{{ $myUrl }}" target="_blank" rel="noopener noreferrer">My iMood: {{ $myMood }}</a>
+            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ $internetUrl }}" target="_blank" rel="noopener noreferrer">Internet's iMood: {{ $internetMood }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid mt-4 mb-5">
     <div class="row justify-content-center g-4">
       <div class="col-12 col-md-12 col-lg-6">
