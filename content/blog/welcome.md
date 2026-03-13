@@ -9,7 +9,7 @@ weight: 10
 categories: []
 tags: []
 contributors: ["Fawkes ND"]
-pinned: true
+pinned: false
 homepage: false
 seo:
   title: "" # custom title (optional)
