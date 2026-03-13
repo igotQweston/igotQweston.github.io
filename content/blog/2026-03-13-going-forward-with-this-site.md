@@ -8,7 +8,7 @@ draft: false
 weight: 0
 categories: []
 tags: []
-contributors: ""
+contributors: ["Fawkes ND"]
 pinned: True
 seo:
   title: ""
