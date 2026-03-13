@@ -25,7 +25,7 @@
   </div>
   {{ end -}}
   {{ .Content }}
-  {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate }}
+  {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
   {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
   {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
   {{ $latestProjects := first 5 $projectPages.ByDate.Reverse }}
@@ -39,7 +39,7 @@
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
               {{ $itemSummary := .Params.summary | default .Summary }}
               {{ with $itemSummary }}
-                <p class="small text-muted mb-0">{{ . | plainify }}</p>
+                <p class="small text-muted mb-0">{{ . | plainify | htmlUnescape }}</p>
               {{ end }}
             </li>
           {{ else }}
@@ -51,7 +51,13 @@
         <h2 class="h4 mb-3">Latest Projects</h2>
         <ul class="list-unstyled mb-0">
           {{ range $latestProjects }}
-            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            <li class="mb-3">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ $itemSummary := .Params.summary | default .Summary }}
+              {{ with $itemSummary }}
+                <p class="small text-muted mb-0">{{ . | plainify | htmlUnescape }}</p>
+              {{ end }}
+            </li>
           {{ else }}
             <li class="text-muted">No projects yet.</li>
           {{ end }}
