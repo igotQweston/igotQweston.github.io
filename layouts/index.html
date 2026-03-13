@@ -8,8 +8,8 @@
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
       <a class="btn btn-primary btn-cta rounded-pill btn-lg my-3" href="/blog/" role="button">{{ i18n "open_blog" }}</a>
       <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg my-3" href="/projects/getting-started/overview/" role="button">{{ i18n "get_started" }}</a>
-      <a class="btn btn-outline-primary rounded-pill px-4" href="{{ .Params.guestbook.url }}" target="_blank" rel="noopener noreferrer">Visit Guestbook</a>
     </div>
+     <a class="btn btn-outline-primary rounded-pill btn-lg my-3" href="{{ .Params.guestbook.url }}" role="button">Visit Guestbook</a>
   </div>
 </section>
 {{ end }}
@@ -22,16 +22,18 @@
   {{ end -}}
   {{ .Content }}
   {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
-  {{ $latestProjects := first 5 (where .Site.RegularPages "Section" "projects").ByDate.Reverse }}
-  <div class="container-fluid mt-4">
+  {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
+  {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
+  {{ $latestProjects := first 5 $projectPages.ByDate.Reverse }}
+  <div class="container-fluid mt-4 mb-5">
     <div class="row justify-content-center g-4">
       <div class="col-12 col-lg-5">
         <div class="card h-100">
           <div class="card-body">
             <h2 class="h4 mb-3">Latest Blog Posts</h2>
-            <ul class="list-unstyled mb-0">
+            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
               {{ range $latestPosts }}
-                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
                 <li class="text-muted">No blog posts yet.</li>
               {{ end }}
@@ -43,9 +45,9 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="h4 mb-3">Projects</h2>
-            <ul class="list-unstyled mb-0">
+            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
               {{ range $latestProjects }}
-                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
                 <li class="text-muted">No projects yet.</li>
               {{ end }}

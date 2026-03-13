@@ -5,6 +5,7 @@ summary: ""
 date: 2024-05-21T03:04:03+07:00
 lastmod: 2024-05-21T03:04:03+07:00
 draft: false
+homepageExclude: true
 weight: 810
 toc: true
 seo:
