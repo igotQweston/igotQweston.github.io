@@ -37,25 +37,10 @@ main,
     margin-top: auto;
 }
 
-.guestbook-panel {
-    border-radius: 1rem;
-    padding: 1rem;
-}
-
-.guestbook-panel-dark {
-    background: #121212;
-    border: 1px solid #2a2a2a;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-}
-
-.guestbook-panel-dark h2 {
-    color: #f1f3f5;
-}
-
 .guestbook-iframe {
+    display: block;
     width: 100%;
-    min-height: 650px;
+    height: 980px;
     border: 0;
-    border-radius: 0.75rem;
-    background: #0d0d0d;
+    overflow: hidden;
 }
