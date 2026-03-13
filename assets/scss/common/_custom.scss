@@ -19,3 +19,20 @@
     background-color: currentcolor;
     opacity: .25;
 }
+
+/* Sticky footer: fill viewport on short pages without adding extra gap on long pages. */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main,
+.main,
+#main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    margin-top: auto;
+}
