@@ -35,9 +35,9 @@
         <div class="card">
           <div class="card-body">
             <h2 class="h4 mb-3">Latest Blog Posts</h2>
-            <ul class="list-unstyled d-flex flex-wrap gap-4 mb-0">
+            <ul class="list-unstyled mb-0">
               {{ range $latestPosts }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
                 <li class="text-muted">No blog posts yet.</li>
               {{ end }}
@@ -49,9 +49,9 @@
         <div class="card">
           <div class="card-body">
             <h2 class="h4 mb-3">Latest Projects</h2>
-            <ul class="list-unstyled d-flex flex-wrap gap-4 mb-0">
+            <ul class="list-unstyled mb-0">
               {{ range $latestProjects }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ else }}
                 <li class="text-muted">No projects yet.</li>
               {{ end }}
