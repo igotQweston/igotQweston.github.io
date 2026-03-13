@@ -8,6 +8,8 @@
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
       <a class="btn btn-primary btn-cta rounded-pill btn-lg my-3" href="/blog/" role="button">{{ i18n "open_blog" }}</a>
       <a class="btn btn-outline-primary btn-cta rounded-pill btn-lg my-3" href="/projects/getting-started/overview/" role="button">{{ i18n "get_started" }}</a>
+      <a class="btn btn-outline-primary rounded-pill px-4" href="{{ .Params.guestbook.url }}" target="_blank" rel="noopener noreferrer">Visit Guestbook</a>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -20,19 +22,40 @@
   </div>
   {{ end -}}
   {{ .Content }}
-  {{ with .Params.guestbook.url }}
-    <div class="container-fluid mt-4">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-9 col-xl-8">
-            <div class="guestbook-link-card text-center">
-              <h2 class="h4 mb-3">{{ $.Params.guestbook.title | default "Guestbook" }}</h2>
-              <p class="mb-3">Open the guestbook in a new tab.</p>
-              <a class="btn btn-outline-primary rounded-pill px-4" href="{{ . }}" target="_blank" rel="noopener noreferrer">Visit Guestbook</a>
-            </div>
+  {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+  {{ $latestProjects := first 5 (where .Site.RegularPages "Section" "projects").ByDate.Reverse }}
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-center g-4">
+      <div class="col-12 col-lg-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="h4 mb-3">Latest Blog Posts</h2>
+            <ul class="list-unstyled mb-0">
+              {{ range $latestPosts }}
+                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ else }}
+                <li class="text-muted">No blog posts yet.</li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="h4 mb-3">Projects</h2>
+            <ul class="list-unstyled mb-0">
+              {{ range $latestProjects }}
+                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ else }}
+                <li class="text-muted">No projects yet.</li>
+              {{ end }}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    {{ end }}
+  </div>
 {{ end }}
 
 {{ define "sidebar-footer" }}
