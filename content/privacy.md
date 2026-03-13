@@ -1,9 +1,9 @@
 ---
 title: Privacy Policy
 description: Privacy policy of the website
-summary: Details about the data collected and how it's use
+summary: Details about the data collected and how it's used
 date: 2024-05-15T16:35:07+02:00
-lastmod: 2026-03-13T16:36:56.750Z
+lastmod: 2026-03-13T16:37:35.539Z
 draft: false
 type: legal
 seo:
