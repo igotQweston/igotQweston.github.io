@@ -25,7 +25,8 @@
         {
           "title": "draft",
           "name": "draft",
-          "type": "draft"
+          "type": "draft",
+          "default": false
         },
         {
           "title": "type",
@@ -99,7 +100,8 @@
         {
           "title": "draft",
           "name": "draft",
-          "type": "draft"
+          "type": "draft",
+          "default": false
         },
         {
           "title": "weight",
@@ -197,7 +199,8 @@
         {
           "title": "draft",
           "name": "draft",
-          "type": "draft"
+          "type": "draft",
+          "default": false
         },
         {
           "title": "weight",
