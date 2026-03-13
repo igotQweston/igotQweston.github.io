@@ -10,7 +10,7 @@ seo:
   description: Get to know me a bit better on this page.
   canonical: ""
   noindex: false
-lastmod: 2026-03-13T17:08:06.252Z
+lastmod: 2026-03-13T17:15:57.380Z
 ---
 
 ## Fawkes ND
@@ -34,4 +34,4 @@ Just like any good programmer and linux user, I love anime. Though I don't watch
 
 ### Music Lover
 
-I have a very eclectic or maybe rather weird taste in music. From Post-Rock to Noir-Jazz to sextrance to hyperflip/dariacore and more. I listen to a lot of different genres and I'm always looking for new music to listen to. Just check out my [bandcamp](https://bandcamp.com/fawkesnd) if you want to see what kind of music I listen to. I also make music myself, though I'm very shit at it also on [bandcamp](https://kaniya.bandcamp.com/).
+I have a very eclectic or maybe rather weird taste in music. From Post-Rock to Noir-Jazz to sextrance to hyperflip/dariacore and more. I listen to a lot of different genres and I'm always looking for new music to listen to. Just check out my [bandcamp collection](https://bandcamp.com/fawkesnd) if you want to see what kind of music I listen to. I also make music myself, though I'm very shit at it also on [bandcamp](https://kaniya.bandcamp.com/).
