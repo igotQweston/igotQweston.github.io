@@ -3,7 +3,7 @@ title: Privacy Policy
 description: Privacy policy of the website
 summary: Details about the data collected and how it's used
 date: 2024-05-15T16:35:07+02:00
-lastmod: 2026-03-13T16:37:35.539Z
+lastmod: 2026-03-13T16:38:02.734Z
 draft: false
 type: legal
 seo:
@@ -15,7 +15,7 @@ seo:
 
 ## Privacy Policy
 
-I respect your privacy and am committed to not infringe on it. This privacy policy outlines hat is being collected and how it's used.
+I respect your privacy and am committed to not infringe on it. This privacy policy outlines what data is being collected and how it's used.
 
 ### Data Collection
 
