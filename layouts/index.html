@@ -24,15 +24,10 @@
     <div class="container-fluid mt-4">
       <div class="row justify-content-center">
         <div class="col-12 col-lg-9 col-xl-8">
-            <h2 class="h4 text-center mb-3">{{ $.Params.guestbook.title | default "Guestbook" }}</h2>
-            <div class="guestbook-resizer">
-              <iframe
-                src="{{ . }}"
-                title="Atabook guestbook"
-                class="guestbook-iframe"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin">
-              </iframe>
+            <div class="guestbook-link-card text-center">
+              <h2 class="h4 mb-3">{{ $.Params.guestbook.title | default "Guestbook" }}</h2>
+              <p class="mb-3">Open the guestbook in a new tab.</p>
+              <a class="btn btn-outline-primary rounded-pill px-4" href="{{ . }}" target="_blank" rel="noopener noreferrer">Visit Guestbook</a>
             </div>
         </div>
       </div>
