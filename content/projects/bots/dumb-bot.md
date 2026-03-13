@@ -2,8 +2,8 @@
 title: "Dumb Bot"
 description: "A completely undocumented bot written in js."
 summary: ""
-date: 2024-05-21T04:26:02+07:00
-lastmod: 2024-05-21T04:26:07+02:00
+date: 2023-05-21T04:26:02+07:00
+lastmod: 2023-05-21T04:26:07+02:00
 draft: false
 weight: 910
 toc: true

@@ -2,8 +2,8 @@
 title: "Fluidity"
 description: "A custom riced startpage forked from PrettyCoffee/Fluidity."
 summary: ""
-date: 2024-05-21T04:26:02+07:00
-lastmod: 2024-05-21T04:26:07+02:00
+date: 2025-01-21T04:26:02+07:00
+lastmod: 2025-01-21T04:26:07+02:00
 draft: false
 weight: 1010
 toc: true

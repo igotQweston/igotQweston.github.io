@@ -2,8 +2,8 @@
 title: "Shiny Colors English Viewer"
 description: "Electron app for viewing and translating ShinyColors via userscript injection of English Patch."
 summary: ""
-date: 2024-05-21T03:04:03+07:00
-lastmod: 2024-05-21T03:04:03+07:00
+date: 2025-05-21T03:04:03+07:00
+lastmod: 2025-05-21T03:04:03+07:00
 draft: false
 weight: 1110
 toc: true
