@@ -19,6 +19,9 @@ other = "Edit this page on"
 [get_started]
 other = "See all projects"
 
+[open_blog]
+other = "See all posts"
+
 [home]
 other = "Home"
 
