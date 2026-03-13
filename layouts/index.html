@@ -32,32 +32,24 @@
   <div class="container-fluid mt-4 mb-5">
     <div class="row justify-content-center g-4">
       <div class="col-12 col-md-12 col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="h4 mb-3">Latest Blog Posts</h2>
-            <ul class="list-unstyled mb-0">
-              {{ range $latestPosts }}
-                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-              {{ else }}
-                <li class="text-muted">No blog posts yet.</li>
-              {{ end }}
-            </ul>
-          </div>
-        </div>
+        <h2 class="h4 mb-3">Latest Blog Posts</h2>
+        <ul class="list-unstyled mb-0">
+          {{ range $latestPosts }}
+            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ else }}
+            <li class="text-muted">No blog posts yet.</li>
+          {{ end }}
+        </ul>
       </div>
       <div class="col-12 col-md-12 col-lg-6">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="h4 mb-3">Latest Projects</h2>
-            <ul class="list-unstyled mb-0">
-              {{ range $latestProjects }}
-                <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-              {{ else }}
-                <li class="text-muted">No projects yet.</li>
-              {{ end }}
-            </ul>
-          </div>
-        </div>
+        <h2 class="h4 mb-3">Latest Projects</h2>
+        <ul class="list-unstyled mb-0">
+          {{ range $latestProjects }}
+            <li class="mb-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ else }}
+            <li class="text-muted">No projects yet.</li>
+          {{ end }}
+        </ul>
       </div>
     </div>
   </div>
