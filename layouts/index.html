@@ -20,6 +20,19 @@
   </div>
   {{ end -}}
   {{ .Content }}
+  {{ with .Params.guestbook.url }}
+    <div class="col-lg-9 col-xl-8 mt-4">
+      <h2 class="h4 text-center mb-3">{{ $.Params.guestbook.title | default "Guestbook" }}</h2>
+      <iframe
+        src="{{ . }}"
+        title="Atabook guestbook"
+        class="w-100 border rounded"
+        style="min-height: 650px;"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+    {{ end }}
 {{ end }}
 
 {{ define "sidebar-footer" }}

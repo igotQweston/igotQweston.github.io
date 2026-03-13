@@ -10,4 +10,7 @@ seo:
   description: "" # custom description (recommended)
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
+guestbook:
+  title: "Sign My Guestbook"
+  url: "https://fawkesnd.atabook.org/"
 ---
