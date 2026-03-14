@@ -1,9 +1,9 @@
 ---
 title: Welcome to igotQweston
 description: ""
-lead: Hub for Fawkes' (aka igotQweston's) projects and his personal blog.
+lead: Hub for Fawkes' (aka igotQweston's) projects and personal blog.
 date: 2024-05-15T18:07:00+07:00
-lastmod: 2026-03-13T18:20:04.121Z
+lastmod: 2026-03-14T15:01:06.599Z
 draft: false
 seo:
   title: Welcome to igotQweston
