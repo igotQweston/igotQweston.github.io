@@ -23,9 +23,9 @@
         {{- with $.Site.GetPage "taxonomyTerm" (printf "contributors/%s" (urlize .)) -}}
           {{ if .Params.avatar -}}
             {{ $image := .Resources.GetMatch (printf "**%s" .Params.avatar) -}}
-            {{ $imageLq := $image.Resize "10x10 webp q95" -}}
-            {{ $image = $image.Resize "24x24 webp q95" -}}
-            <img class="rounded-circle w-auto mx-1 lazyload blur-up" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="20" height="20">
+            {{ $imageLq := $image.Resize "13x13 webp q95" -}}
+            {{ $image = $image.Resize "50x50 webp q95" -}}
+            <img class="rounded-circle w-auto mx-1 lazyload blur-up" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="25" height="25">
           {{- end }}
         {{- end -}}
         <a class="stretched-link position-relative" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
