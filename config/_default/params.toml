@@ -71,7 +71,7 @@ mainSections = ["docs"]
   relatedPosts = false # false (default) or true
   imageList = true # true (default) or false
   imageSingle = true # true (default) or false
-  hiddenContributors = [] # contributors whose "by" byline is hidden
+  hiddenContributors = ["Fawkes ND"] # contributors whose "by" byline is hidden
 
   # Repository
   editPage = false # false (default) or true
