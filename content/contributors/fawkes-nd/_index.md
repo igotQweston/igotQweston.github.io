@@ -1,7 +1,7 @@
 ---
 title: Fawkes ND
 avatar: avatar.jpg
-headline: Contributor
-summary: Posts by Fawkes ND
-lastmod: 2026-03-14T12:53:56.065Z
+headline: Fawkes ND
+summary: Main guy who runs the site
+lastmod: 2026-03-14T12:58:52.164Z
 ---
