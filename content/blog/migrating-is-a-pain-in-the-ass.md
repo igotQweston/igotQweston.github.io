@@ -3,11 +3,11 @@ title: Migrating is a pain in the ass
 description: ""
 summary: ""
 date: 2026-03-14T11:20:03.130Z
-lastmod: 2026-03-14T11:30:39.261Z
+lastmod: 2026-03-14T11:32:17.265Z
 draft: false
 weight: 0
 categories:
-  - Site-Updates
+  - Site Updates
 tags:
   - Migration
 contributors:
