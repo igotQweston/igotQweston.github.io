@@ -124,6 +124,8 @@ mainSections = ["docs"]
   [seo.title]
     separator = " | "
     suffix = ""
+    [seo.description]
+      summaryFallback = true
   [seo.favicons]
     sizes = []
     icon = "favicon.png" # favicon.png (default)
