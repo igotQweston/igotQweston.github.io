@@ -45,3 +45,20 @@ main,
     border-radius: 0.75rem;
     background: rgba(255, 255, 255, 0.03);
 }
+
+// Blog list card thumbnail — fixed 16:9 crop
+.card img.rounded-top-1 {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+// Blog single post hero image — constrain tall/square images
+.img-post-single {
+    max-height: 480px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
