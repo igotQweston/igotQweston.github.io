@@ -3,13 +3,14 @@ title: Going forward with this site
 description: ""
 summary: ""
 date: 2026-03-13T13:53:00+07:00
-lastmod: null
+lastmod: 2026-03-15T14:27:28.861Z
 draft: false
 weight: 0
 categories: []
 tags: []
-contributors: ["Fawkes ND"]
-pinned: True
+contributors:
+  - Fawkes ND
+pinned: true
 seo:
   title: ""
   description: ""

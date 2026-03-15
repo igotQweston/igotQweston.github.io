@@ -21,7 +21,10 @@
 <div class="row justify-content-center">
   <div class="col-lg-8">
     {{ $summaryLength := site.Params.summaryLength | default 20 }}
-    {{ $paginator := .Paginate (.Data.Pages) -}}
+    {{ $pinnedPages := (where .Data.Pages "Params.pinned" true).ByDate }}
+    {{ $regularPages := (where .Data.Pages "Params.pinned" "!=" true).ByDate.Reverse }}
+    {{ $orderedPages := $pinnedPages | append $regularPages }}
+    {{ $paginator := .Paginate $orderedPages -}}
     {{ range $paginator.Pages -}}
       <div class="card">
         {{ if site.Params.doks.imageList -}}
