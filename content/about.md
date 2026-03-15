@@ -10,14 +10,14 @@ seo:
   description: Get to know me a bit better on this page.
   canonical: ""
   noindex: false
-lastmod: 2026-03-13T17:15:57.380Z
+lastmod: 2026-03-15T03:04:37.459Z
 ---
 
 ## Fawkes ND
 
 ### A Programmer
 
-Hey! My name is Fawkes, but you might also know me as igotQweston or KαNiyα ☆. I'm a hobbyist programmer who loves to tinker with different languages. I code in Python, JS, and Go. You can check out some of my projects on [GitHub](https://github.com/igotQweston).\
+Hey! My name is Fawkes, but you might also know me as igotQweston or KαNiyα☆. I'm a hobbyist programmer who loves to tinker with different languages. I code in Python, JS, and Go. You can check out some of my projects on [GitHub](https://github.com/igotQweston).\
 I also use Arch btw.
 
 ### An Audiophile
