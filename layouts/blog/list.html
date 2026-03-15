@@ -20,6 +20,7 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-lg-8">
+    {{ $summaryLength := site.Params.summaryLength | default 20 }}
     {{ $paginator := .Paginate (.Data.Pages) -}}
     {{ range $paginator.Pages -}}
       <div class="card">
@@ -39,8 +40,11 @@
         <div class="card-body">
           <article>
             <h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
-            {{ $itemSummary := .Params.summary | default .Summary }}
-            {{ with $itemSummary }}<p>{{ . | safeHTML }}</p>{{ end }}
+            {{ $itemSummary := .Params.summary | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
+            {{ with $itemSummary }}
+              {{ $summaryWords := split . " " }}
+              <p>{{ if gt (len $summaryWords) $summaryLength }}{{ delimit (first $summaryLength $summaryWords) " " }}…{{ else }}{{ . }}{{ end }}</p>
+            {{ end }}
             {{ partial "main/blog-meta.html" . -}}
           </article>
         </div>

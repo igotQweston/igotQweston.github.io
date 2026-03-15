@@ -21,6 +21,7 @@
   </div>
   {{ end -}}
   {{ .Content }}
+  {{ $summaryLength := site.Params.summaryLength | default 20 }}
   {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
   {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
   {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
@@ -63,9 +64,10 @@
                   {{ div $secondsAgo 31536000 }}y ago
                 {{ end }}
               </span>
-              {{ $itemSummary := .Params.summary | default .Summary }}
+              {{ $itemSummary := .Params.summary | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
               {{ with $itemSummary }}
-                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | safeHTML }}</p>
+                {{ $summaryWords := split . " " }}
+                <p class="small text-muted mb-0" style="min-height: 2em">{{ if gt (len $summaryWords) $summaryLength }}{{ delimit (first $summaryLength $summaryWords) " " }}…{{ else }}{{ . }}{{ end }}</p>
               {{ end }}
             </li>
           {{ else }}
@@ -79,9 +81,10 @@
           {{ range $latestProjects }}
             <li class="mb-3">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{ $itemSummary := .Params.summary | default .Summary }}
+              {{ $itemSummary := .Params.summary | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
               {{ with $itemSummary }}
-                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | safeHTML }}</p>
+                {{ $summaryWords := split . " " }}
+                <p class="small text-muted mb-0" style="min-height: 2em">{{ if gt (len $summaryWords) $summaryLength }}{{ delimit (first $summaryLength $summaryWords) " " }}…{{ else }}{{ . }}{{ end }}</p>
               {{ end }}
             </li>
           {{ else }}
