@@ -65,7 +65,7 @@
               </span>
               {{ $itemSummary := .Params.summary | default .Summary }}
               {{ with $itemSummary }}
-                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | plainify | htmlUnescape | truncate 100 "…" }}</p>
+                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | safeHTML }}</p>
               {{ end }}
             </li>
           {{ else }}
@@ -81,7 +81,7 @@
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
               {{ $itemSummary := .Params.summary | default .Summary }}
               {{ with $itemSummary }}
-                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | plainify | htmlUnescape | truncate 100 "…" }}</p>
+                <p class="small text-muted mb-0" style="min-height: 2em">{{ . | safeHTML }}</p>
               {{ end }}
             </li>
           {{ else }}
