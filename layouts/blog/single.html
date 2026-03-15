@@ -23,7 +23,8 @@
     {{ end -}}
   {{ end -}}
   <div class="col-md-12 col-lg-9">
-    {{ with .Params.summary -}}<p class="lead">{{ . }}</p>{{ end -}}
+    {{ $singleSummary := .Params.summary | default .Summary }}
+    {{ with $singleSummary -}}<p class="lead">{{ . }}</p>{{ end -}}
     {{ .Content }}
     {{ if .Params.tags -}}
     <div class="tag-list-single">
@@ -71,7 +72,8 @@
               <div class="card-body">
                 <article>
                   <h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
-                  <p>{{ .Params.summary | safeHTML }}</p>
+                  {{ $itemSummary := .Params.summary | default .Summary }}
+                  {{ with $itemSummary }}<p>{{ . | safeHTML }}</p>{{ end }}
                   {{ partial "main/blog-meta.html" . -}}
                 </article>
               </div>
