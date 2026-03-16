@@ -22,8 +22,10 @@
       <p class="lead text-center">{{ .Params.summary }}</p>
     {{- else if .Params.description -}}
       <p class="lead text-center">{{ .Params.description }}</p>
-    {{- else with .Content -}}
-      <div class="text-center">{{ . }}</div>
+    {{- else -}}
+      {{ with .Content -}}
+        <div class="text-center">{{ . }}</div>
+      {{- end }}
     {{- end -}}
   </div>
 </div>
