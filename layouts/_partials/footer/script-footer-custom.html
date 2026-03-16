@@ -6,6 +6,8 @@
 {{ end -}}
 */}}
 
+{{ partial "footer/esbuild" (dict "src" "js/custom.js" "load" "defer" "transpile" false) -}}
+
 {{/* EXAMPLE - only load script for a page type e.g. contact or gallery
 {{ if eq .Type "gallery" -}}
   {{ partial "footer/esbuild" (dict "src" "js/gallery.js" "load" "async" "transpile" false) -}}

@@ -50,19 +50,12 @@
           {{ range $latestPosts }}
             <li class="mb-3">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{ $secondsAgo := sub now.Unix .Date.Unix }}
-              <span class="small text-muted">
-                {{ if lt $secondsAgo 3600 }}
-                  {{ div $secondsAgo 60 }}m ago
-                {{ else if lt $secondsAgo 86400 }}
-                  {{ div $secondsAgo 3600 }}h ago
-                {{ else if lt $secondsAgo 2592000 }}
-                  {{ div $secondsAgo 86400 }}d ago
-                {{ else if lt $secondsAgo 31536000 }}
-                  {{ div $secondsAgo 2592000 }}mo ago
-                {{ else }}
-                  {{ div $secondsAgo 31536000 }}y ago
-                {{ end }}
+              <span
+                class="small text-muted js-relative-time"
+                data-relative-time="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+                title="{{ .Date.Format "Jan 2, 2006 3:04 PM MST" }}"
+              >
+                {{ .Date.Format "Jan 2, 2006" }}
               </span>
               {{ $itemSummary := .Params.summary | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
               {{ with $itemSummary }}
