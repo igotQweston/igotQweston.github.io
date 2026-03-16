@@ -272,8 +272,15 @@
             <div class="vr h-100 mx-2 text-muted"></div>
           </li>
           {{ range .Site.Menus.social -}}
+            {{- $socialRel := slice -}}
+            {{- if .Params.relMe -}}
+              {{- $socialRel = $socialRel | append "me" -}}
+            {{- end -}}
+            {{- if .Params.target -}}
+              {{- $socialRel = $socialRel | append "noopener" "noreferrer" -}}
+            {{- end -}}
             <li class="nav-item">
-              <a class="nav-link social-link" href="{{ .URL | relURL }}" rel="me{{ if .Params.target }} noopener noreferrer{{ end }}"{{ if .Params.target -}} target="{{ .Params.target }}"{{ end }}>{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
+              <a class="nav-link social-link" href="{{ .URL | relURL }}"{{ if gt (len $socialRel) 0 }} rel="{{ delimit $socialRel " " }}"{{ end }}{{ if .Params.target -}} target="{{ .Params.target }}"{{ end }}>{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
             </li>
           {{ end -}}
         </ul>
