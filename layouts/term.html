@@ -10,12 +10,9 @@
       <img class="img-fluid lazyload blur-up rounded-circle" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="150" height="150">
     </div>
   {{ end -}}
-
-
   {{ with .Params.headline -}}
     <h1 class="text-center">{{ . }}</h1>
   {{ else -}}
-
     <h1 class="text-center">{{ .Title }}</h1>
   {{ end -}}
     {{ if .Params.summary -}}
@@ -57,7 +54,7 @@
                 {{ range $contributors }}
                   <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
                 {{ end }}
-                <p class="mb-1">
+                <p class="mt-4 mb-1 fs-3">
                   {{ range $index, $contributor := $contributors }}
                     {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
                   {{ end }}

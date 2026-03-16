@@ -8,14 +8,14 @@
         {{ range $contributors }}
           <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
         {{ end }}
-        <p class="fs-4 fw-semibold mb-1">
+        <p class="mt-3 fs-2 fw-semibold mb-1">
           {{ range $index, $contributor := $contributors }}
             {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/">@{{ $contributor | replaceRE "\\s+" "" }}</a>
           {{ end }}
         </p>
       {{ end }}
       <p class="fs-6 text-muted mb-3"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02 15:04" }}</time></p>
-      <div class="e-content">
+      <div class="e-content fs-4 mb-4">
         {{ .Content }}
       </div>
     </div>
