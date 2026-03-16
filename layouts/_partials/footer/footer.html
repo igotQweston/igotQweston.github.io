@@ -6,9 +6,7 @@
             {{ range .Site.Menus.footer -}}
               <li class="list-inline-item"><a class="text-muted" href="{{ .URL | relURL }}">{{ .Name }}</a></li>
             {{- end }}
-            {{ with site.Home.OutputFormats.Get "RSS" -}}
-              <li class="list-inline-item"><a class="text-muted" href="{{ .RelPermalink }}">RSS</a></li>
-            {{- end }}
+            <li class="list-inline-item"><a class="text-muted" href="{{ "/blog/index.xml" | relURL }}">RSS</a></li>
           </ul>
         </div>
         <div class="col-lg-8 text-center text-lg-end">

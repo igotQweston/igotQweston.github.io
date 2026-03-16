@@ -23,8 +23,8 @@ copyright = "Copyright © 2026 Fawkes ND"
   enable = true
 
 [outputs]
-  home = ["HTML", "RSS", "searchIndex"]
-  section = ["HTML", "RSS", "SITEMAP"]
+  home = ["HTML", "searchIndex"]
+  section = ["HTML", "SITEMAP"]
 
 [outputFormats.searchIndex]
   mediaType = "application/json"
