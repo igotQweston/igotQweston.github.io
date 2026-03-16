@@ -1,0 +1,96 @@
+{{ define "main" }}
+<div class="row justify-content-center">
+  <div class="col-md-12 col-lg-9">
+
+  {{ if .Params.avatar -}}
+    {{ $image := .Resources.GetMatch (printf "**%s" .Params.avatar) -}}
+    {{ $imageLq := $image.Resize "15x15 webp q95" -}}
+    {{ $image = $image.Resize "300x300 webp q95" -}}
+    <div class="contributor-image">
+      <img class="img-fluid lazyload blur-up rounded-circle" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="150" height="150">
+    </div>
+  {{ end -}}
+
+
+  {{ with .Params.headline -}}
+    <h1 class="text-center">{{ . }}</h1>
+  {{ else -}}
+
+    <h1 class="text-center">{{ .Title }}</h1>
+  {{ end -}}
+    {{ if .Params.summary -}}
+      <p class="lead text-center">{{ .Params.summary }}</p>
+    {{- else if .Params.description -}}
+      <p class="lead text-center">{{ .Params.description }}</p>
+    {{- else with .Content -}}
+      <div class="text-center">{{ . }}</div>
+    {{- end -}}
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-lg-9">
+    {{ $summaryLength := site.Params.summaryLength | default 20 }}
+    {{ $paginator := .Paginate (.Data.Pages) -}}
+    {{ range $paginator.Pages -}}
+      <div class="card">
+        {{ if site.Params.doks.imageList -}}
+          {{- $images := .Resources.ByType "image" -}}
+          {{- $featured := $images.GetMatch "*feature*" -}}
+          {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+          {{- if $featured -}}
+            {{ partial "img" (dict
+            "page" .
+            "src" $featured
+            "alt" .Title
+            "class" "rounded-top-1"
+            )}}
+          {{ end -}}
+        {{ end -}}
+        <div class="card-body">
+          <article class="h-entry">
+            {{ if eq .Section "status" -}}
+              <a class="stretched-link text-body text-decoration-none u-url" href="{{ .RelPermalink }}"><span class="p-name visually-hidden">Status update</span></a>
+              {{ $contributors := .Params.contributors | default (slice) }}
+              {{ if gt (len $contributors) 0 }}
+                {{ range $contributors }}
+                  <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
+                {{ end }}
+                <p class="mb-1">
+                  {{ range $index, $contributor := $contributors }}
+                    {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
+                  {{ end }}
+                </p>
+              {{ end }}
+              <div class="e-content mb-2">{{ .Content }}</div>
+              <p class="mb-0"><small><strong><time class="dt-published js-relative-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" data-relative-time="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02 15:04" }}</time></strong></small></p>
+            {{- else -}}
+              <h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
+              {{ $cardSummary := .Params.summary | default .Params.description }}
+              {{ if $cardSummary }}
+                {{ $summaryText := $cardSummary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
+                {{ with $summaryText }}
+                  {{ $summaryWords := split . " " }}
+                  <p>{{ if gt (len $summaryWords) $summaryLength }}{{ delimit (first $summaryLength $summaryWords) " " }}…{{ else }}{{ $cardSummary | safeHTML }}{{ end }}</p>
+                {{ end }}
+              {{ else }}
+                {{ $page := . }}
+                {{ $contentText := .Content | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace }}
+                {{ with $contentText }}
+                  {{ $contentWords := split . " " }}
+                  <div>{{ if gt (len $contentWords) $summaryLength }}{{ delimit (first $summaryLength $contentWords) " " }}…{{ else }}{{ $page.Content | safeHTML }}{{ end }}</div>
+                {{ end }}
+              {{ end }}
+              {{ partial "main/blog-meta.html" . -}}
+            {{- end }}
+          </article>
+        </div>
+      </div>
+    {{ end -}}
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-12 col-lg-9">
+    {{ template "_internal/pagination.html" . }}    
+  </div>
+</div>
+{{ end }}
