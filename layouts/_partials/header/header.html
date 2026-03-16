@@ -130,13 +130,27 @@
                 <ul class="dropdown-menu shadow rounded border-0">
                   {{ range .Children -}}
                   {{- $active = eq .Name $current.Title -}}
-                    <li><a class="dropdown-item{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if $active }} aria-current="true"{{ end }}>{{ .Name }}</a></li>
+                    {{- $rel := slice -}}
+                    {{- if .Params.relMe -}}
+                      {{- $rel = $rel | append "me" -}}
+                    {{- end -}}
+                    {{- if .Params.target -}}
+                      {{- $rel = $rel | append "noopener" "noreferrer" -}}
+                    {{- end -}}
+                    <li><a class="dropdown-item{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if gt (len $rel) 0 }} rel="{{ delimit $rel " " }}"{{ end }}{{ if .Params.target }} target="{{ .Params.target }}"{{ end }}{{ if $active }} aria-current="true"{{ end }}>{{ .Name }}</a></li>
                   {{ end -}}
                 </ul>
               </li>
             {{ else -}}
+              {{- $rel := slice -}}
+              {{- if .Params.relMe -}}
+                {{- $rel = $rel | append "me" -}}
+              {{- end -}}
+              {{- if .Params.target -}}
+                {{- $rel = $rel | append "noopener" "noreferrer" -}}
+              {{- end -}}
               <li class="nav-item">
-                <a class="nav-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if $active }} aria-current="true"{{ end }}{{ if .Params.target -}} target="{{ .Params.target }}"{{ end -}}>
+                <a class="nav-link{{ if $active }} active{{ end }}" href="{{ .URL | absURL }}"{{ if gt (len $rel) 0 }} rel="{{ delimit $rel " " }}"{{ end }}{{ if $active }} aria-current="true"{{ end }}{{ if .Params.target -}} target="{{ .Params.target }}"{{ end -}}>
                   {{ if .Pre -}}
                     {{ .Pre | safeHTML }}{{ end -}}
                   {{ .Name }}
