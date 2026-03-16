@@ -13,7 +13,7 @@
       &nbsp;{{ i18n "in" }}&nbsp;
       {{- range $index, $category := . -}}
         {{ if gt $index 0 }}, {{ end -}}
-        <a class="stretched-link position-relative link-muted" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+        <a class="stretched-link position-relative link-muted p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
       {{- end }}
     {{- end }}
     {{- with $visibleContributors -}}
@@ -28,7 +28,7 @@
             <img class="rounded-circle w-auto mx-1 lazyload blur-up" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="20" height="20">
           {{- end }}
         {{- end -}}
-        <a class="stretched-link position-relative p-author h-card" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
+        <a rel="author" class="stretched-link position-relative p-author h-card" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
       {{- end }}
     {{- end -}}
     {{- /* NOTE: classes 'stretched-link position-relative' are necessary to properly display the title attribute on hover */ -}}
