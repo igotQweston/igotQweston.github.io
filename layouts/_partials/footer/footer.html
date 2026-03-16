@@ -16,6 +16,9 @@
             <li class="list-inline-item">{{ site.Params.footer | safeHTML }}</li>
             <li class="list-inline-item">{{ .Site.Copyright | safeHTML }}</li>
           </ul>
+          <span class="h-card visually-hidden">
+            <a class="p-name u-url" href="{{ site.Home.Permalink }}">{{ site.Title }}</a>
+          </span>
         </div>
       </div>
     </div>

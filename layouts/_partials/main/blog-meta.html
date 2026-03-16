@@ -8,7 +8,7 @@
 {{- $last := sub (len $visibleContributors) 1 -}}
 <p>
   <small>
-    {{- time.Format (default ":date_long" .Site.Params.dateFormat) .PublishDate -}}
+    <time class="dt-published" datetime="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">{{- time.Format (default ":date_long" .Site.Params.dateFormat) .PublishDate -}}</time>
     {{- with .Params.categories -}}
       &nbsp;{{ i18n "in" }}&nbsp;
       {{- range $index, $category := . -}}
@@ -28,7 +28,7 @@
             <img class="rounded-circle w-auto mx-1 lazyload blur-up" src="{{ $imageLq.RelPermalink }}" data-src="{{ $image.RelPermalink }}" alt="{{ .Title }}" width="20" height="20">
           {{- end }}
         {{- end -}}
-        <a class="stretched-link position-relative" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+        <a class="stretched-link position-relative p-author h-card" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
       {{- end }}
     {{- end -}}
     {{- /* NOTE: classes 'stretched-link position-relative' are necessary to properly display the title attribute on hover */ -}}

@@ -1,9 +1,10 @@
 {{ define "main" }}
-<article>
+<article class="h-entry">
 <div class="row justify-content-center">
   <div class="col-md-12 col-lg-10">
     <div class="blog-header">
-      <h1>{{ .Title }}</h1>
+      <h1 class="p-name">{{ .Title }}</h1>
+      <a class="u-url visually-hidden" href="{{ .Permalink }}">{{ .Permalink }}</a>
       {{ partial "main/blog-meta.html" . }}
     </div>
   </div>
@@ -24,8 +25,10 @@
   {{ end -}}
   <div class="col-md-12 col-lg-9">
     {{ $singleSummary := .Params.summary | default .Summary }}
-    {{ with $singleSummary -}}<p class="lead">{{ . }}</p>{{ end -}}
-    {{ .Content }}
+    {{ with $singleSummary -}}<p class="lead p-summary">{{ . }}</p>{{ end -}}
+    <div class="e-content">
+      {{ .Content }}
+    </div>
     {{ if .Params.tags -}}
     <div class="tag-list-single">
       {{ range $index, $tag := .Params.tags -}}
@@ -70,10 +73,10 @@
           {{ range . -}}
             <div class="card">
               <div class="card-body">
-                <article>
-                  <h2 class="h3"><a class="stretched-link text-body" href="{{ .RelPermalink }}">{{ .Params.title }}</a></h2>
+                <article class="h-entry">
+                  <h2 class="h3"><a class="stretched-link text-body u-url" href="{{ .RelPermalink }}"><span class="p-name">{{ .Params.title }}</span></a></h2>
                   {{ $itemSummary := .Params.summary | default .Summary }}
-                  {{ with $itemSummary }}<p>{{ . | safeHTML }}</p>{{ end }}
+                  {{ with $itemSummary }}<p class="p-summary">{{ . | safeHTML }}</p>{{ end }}
                   {{ partial "main/blog-meta.html" . -}}
                 </article>
               </div>
