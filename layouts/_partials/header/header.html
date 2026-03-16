@@ -259,7 +259,7 @@
           </li>
           {{ range .Site.Menus.social -}}
             <li class="nav-item">
-              <a class="nav-link social-link" href="{{ .URL | relURL }}"{{ if .Params.target -}} target="{{ .Params.target }}"{{ end }}>{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
+              <a class="nav-link social-link" href="{{ .URL | relURL }}" rel="me{{ if .Params.target }} noopener noreferrer{{ end }}"{{ if .Params.target -}} target="{{ .Params.target }}"{{ end }}>{{ .Pre | safeHTML }}<small class="ms-2 visually-hidden">{{ .Name | safeHTML }}</small></a>
             </li>
           {{ end -}}
         </ul>
