@@ -23,7 +23,7 @@ copyright = "Copyright © 2026 Fawkes ND"
   enable = true
 
 [outputs]
-  home = ["HTML", "searchIndex"]
+  home = ["HTML", "searchIndex", "RSS"]
   section = ["HTML", "SITEMAP"]
 
 [outputFormats.searchIndex]

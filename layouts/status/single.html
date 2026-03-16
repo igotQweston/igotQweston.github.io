@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article class="h-entry">
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-9">
+      <a class="u-url visually-hidden" href="{{ .Permalink }}">{{ .Permalink }}</a>
+      {{ $contributors := .Params.contributors | default (slice) }}
+      {{ if gt (len $contributors) 0 }}
+        {{ range $contributors }}
+          <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
+        {{ end }}
+        <p class="fs-4 fw-semibold mb-1">
+          {{ range $index, $contributor := $contributors }}
+            {{ if gt $index 0 }}, {{ end }}<a class="text-body text-decoration-none" href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/">@{{ $contributor | replaceRE "\\s+" "" }}</a>
+          {{ end }}
+        </p>
+      {{ end }}
+      <p class="fs-6 text-muted mb-3"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02 15:04" }}</time></p>
+      <div class="e-content">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="igotqweston/igotqweston.github.io"
+        data-repo-id="R_kgDOIFOmhw"
+        data-category="Site Comments"
+        data-category-id="DIC_kwDOIFOmh84CfXtU"
+        data-mapping="og:title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+{{ end }}
