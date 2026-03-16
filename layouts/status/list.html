@@ -21,9 +21,9 @@
               {{ range $contributors }}
                 <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
               {{ end }}
-              <p class="text-muted fs-3 mb-1">
+              <p class="text-muted fs-3 mb-1 position-relative" style="z-index: 2;">
                 {{ range $index, $contributor := $contributors }}
-                  {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
+                  {{ if gt $index 0 }}, {{ end }}<a class="position-relative" style="z-index: 3;" href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
                 {{ end }}
               </p>
             {{ end }}

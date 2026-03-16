@@ -54,9 +54,9 @@
                 {{ range $contributors }}
                   <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
                 {{ end }}
-                <p class="mt-4 mb-1 fs-3">
+                <p class="mt-4 mb-1 fs-3 position-relative" style="z-index: 2;">
                   {{ range $index, $contributor := $contributors }}
-                    {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
+                    {{ if gt $index 0 }}, {{ end }}<a class="position-relative" style="z-index: 3;" href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
                   {{ end }}
                 </p>
               {{ end }}
