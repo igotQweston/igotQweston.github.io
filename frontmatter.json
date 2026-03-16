@@ -246,6 +246,59 @@
           ]
         }
       ]
+    },
+    {
+      "name": "status",
+      "pageBundle": false,
+      "previewPath": null,
+      "filePrefix": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "datetime",
+          "default": "{{now | date: 'yyyy-MM-dd'}}",
+          "isTitleDate": true
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "lastmod",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft",
+          "default": false
+        },
+        {
+          "title": "contributors",
+          "name": "contributors",
+          "type": "choice",
+          "choices": [
+            "Fawkes ND"
+          ],
+          "default": []
+        },
+        {
+          "title": "categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
     }
   ],
   "frontMatter.framework.id": "hugo",
@@ -272,6 +325,13 @@
       "path": "[[workspace]]/content/projects",
       "contentTypes": [
         "projects"
+      ]
+    },
+    {
+      "title": "status",
+      "path": "[[workspace]]/content/status",
+      "contentTypes": [
+        "status"
       ]
     }
   ],

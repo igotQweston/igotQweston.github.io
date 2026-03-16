@@ -23,6 +23,7 @@
   {{ .Content }}
   {{ $summaryLength := site.Params.summaryLength | default 20 }}
   {{ $latestPosts := first 5 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+  {{ $latestStatus := first 1 (where .Site.RegularPages "Section" "status").ByDate.Reverse }}
   {{ $projectPages := where .Site.RegularPages "Section" "projects" }}
   {{ $projectPages = where $projectPages "Params.homepageExclude" "!=" true }}
   {{ $latestProjects := first 5 $projectPages.ByDate.Reverse }}
@@ -41,6 +42,43 @@
   <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
     <a class="btn btn-sm btn-outline-primary rounded-pill" href="{{ $myUrl }}" target="_blank" rel="noopener noreferrer">My Mood: {{ $myMood | safeHTML }}</a>
     <a class="btn btn-sm btn-outline-primary rounded-pill" href="{{ $internetUrl }}" target="_blank" rel="noopener noreferrer">Internet's Mood: {{ $internetMood | safeHTML }}</a>
+  </div>
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <h2 class="h4 mb-3 text-center">New Status</h2>
+        {{ range $latestStatus }}
+          <article class="card mb-3 h-entry">
+            <div class="card-body">
+              <a class="stretched-link text-body text-decoration-none u-url" href="{{ .RelPermalink }}"><span class="p-name visually-hidden">Status update</span></a>
+              {{ $contributors := .Params.contributors | default (slice) }}
+              {{ if gt (len $contributors) 0 }}
+                {{ range $contributors }}
+                  <a rel="author" class="p-author h-card visually-hidden" href="{{ "/contributors/" | relLangURL }}{{ . | urlize }}/"><span class="p-name">{{ . }}</span></a>
+                {{ end }}
+                <p class="text-muted mb-2">
+                  {{ range $index, $contributor := $contributors }}
+                    {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
+                  {{ end }}
+                </p>
+              {{ end }}
+              <div class="e-content mb-2">
+                {{ .Content }}
+              </div>
+              <p class="mb-0">
+                <small>
+                  <strong>
+                    <time class="dt-published text-muted js-relative-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" data-relative-time="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" title="{{ .Date.Format "Jan 2, 2006 3:04 PM MST" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                  </strong>
+                </small>
+              </p>
+            </div>
+          </article>
+        {{ else }}
+          <p class="text-muted">No status posts yet.</p>
+        {{ end }}
+      </div>
+    </div>
   </div>
   <div class="container-fluid mt-4 mb-5">
     <div class="row justify-content-center g-4">

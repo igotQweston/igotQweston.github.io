@@ -23,7 +23,18 @@ const formatRelativeTime = (input) => {
 		return `${Math.floor(secondsAgo / 2592000)}mo ago`;
 	}
 
-	return `${Math.floor(secondsAgo / 31536000)}y ago`;
+	const datePart = timestamp.toLocaleDateString(undefined, {
+		year: "numeric",
+		month: "short",
+		day: "numeric",
+	});
+	const timePart = timestamp.toLocaleTimeString(undefined, {
+		hour: "numeric",
+		minute: "2-digit",
+		hour12: true,
+	});
+
+	return `${datePart} - ${timePart}`;
 };
 
 const updateRelativeTimes = () => {
