@@ -10,7 +10,7 @@
         {{ end }}
         <p class="fs-4 fw-semibold mb-1">
           {{ range $index, $contributor := $contributors }}
-            {{ if gt $index 0 }}, {{ end }}<a class="text-body text-decoration-none" href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/">@{{ $contributor | replaceRE "\\s+" "" }}</a>
+            {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/">@{{ $contributor | replaceRE "\\s+" "" }}</a>
           {{ end }}
         </p>
       {{ end }}

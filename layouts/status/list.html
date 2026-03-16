@@ -23,7 +23,7 @@
               {{ end }}
               <p class="text-muted mb-1">
                 {{ range $index, $contributor := $contributors }}
-                  {{ if gt $index 0 }}, {{ end }}<a class="text-muted text-decoration-none" href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
+                  {{ if gt $index 0 }}, {{ end }}<a href="{{ "/contributors/" | relLangURL }}{{ $contributor | urlize }}/"><strong>@{{ $contributor | replaceRE "\\s+" "" }}</strong></a>
                 {{ end }}
               </p>
             {{ end }}
