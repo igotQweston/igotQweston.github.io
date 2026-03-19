@@ -286,7 +286,8 @@
           "choices": [
             "Fawkes ND"
           ],
-          "default": []
+          "default": [],
+          "multiple": true
         },
         {
           "title": "categories",
