@@ -51,7 +51,7 @@ const updateRelativeTimes = () => {
 // Auto-embed URLs in status content
 const embedUrls = async () => {
 	const pathname = window.location.pathname;
-	if (!pathname.includes("/status/")) return;
+	if (!pathname.includes("/status/") || pathname.includes("/"))	 return;
 
 	const contentElement = document.querySelector(".e-content");
 	if (!contentElement) return;
