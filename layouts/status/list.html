@@ -38,9 +38,9 @@
               {{ $sourceWords := split . " " }}
               {{ if gt (len $sourceWords) $statusLength }}
                 {{ $truncatedSource := printf "%s…" (delimit (first $statusLength $sourceWords) " ") }}
-                <div class="mb-2">{{ $truncatedSource | markdownify }}</div>
+                <div class="mb-2 js-status-embed">{{ $truncatedSource | markdownify }}</div>
               {{ else }}
-                <div class="mb-2">{{ $statusSource | markdownify }}</div>
+                <div class="mb-2 js-status-embed">{{ $statusSource | markdownify }}</div>
               {{ end }}
             {{ end }}
             <p class="mb-0"><small><strong><time class="dt-published js-relative-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" data-relative-time="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02 15:04" }}</time></strong></small></p>

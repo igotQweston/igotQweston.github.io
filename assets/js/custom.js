@@ -48,96 +48,99 @@ const updateRelativeTimes = () => {
 	});
 };
 
-// Auto-embed URLs in status content
+// Auto-embed URLs in status content (or explicitly marked containers)
 const embedUrls = async () => {
 	const pathname = window.location.pathname;
-	if (!pathname.includes("/status/") || pathname.includes("/"))	 return;
+	const isStatusRoute = pathname.includes("/status/");
+	const customEmbedClass = ".js-status-embed";
 
-	const contentElement = document.querySelector(".e-content");
-	if (!contentElement) return;
+	const targets = [
+		...document.querySelectorAll(customEmbedClass),
+		...(isStatusRoute ? document.querySelectorAll(".e-content") : []),
+	];
+	const contentElements = [...new Set(targets)];
+	if (contentElements.length === 0) return;
 
-	// Find all plain URLs in text (not already wrapped in <a> tags)
-	const urlRegex = /(?<!href="|<a [^>]*>)https?:\/\/[^\s<>]+/g;
-	const walker = document.createTreeWalker(
-		contentElement,
-		NodeFilter.SHOW_TEXT,
-		null,
-		false
-	);
+	for (const contentElement of contentElements) {
+		const urlRegex = /(?<!href="|<a [^>]*>)https?:\/\/[^\s<>]+/g;
+		const walker = document.createTreeWalker(
+			contentElement,
+			NodeFilter.SHOW_TEXT,
+			null,
+			false
+		);
 
-	const nodesToProcess = [];
-	let node;
-	while ((node = walker.nextNode())) {
-		const parentElement = node.parentElement;
-		if (parentElement?.closest("a, .link-embed, .js-embed-source-link")) {
-			continue;
+		const nodesToProcess = [];
+		let node;
+		while ((node = walker.nextNode())) {
+			const parentElement = node.parentElement;
+			if (parentElement?.closest("a, .link-embed, .js-embed-source-link")) {
+				continue;
+			}
+
+			if (urlRegex.test(node.nodeValue)) {
+				nodesToProcess.push(node);
+			}
 		}
 
-		if (urlRegex.test(node.nodeValue)) {
-			nodesToProcess.push(node);
+		for (const textNode of nodesToProcess) {
+			const urls = Array.from(textNode.nodeValue.matchAll(/(https?:\/\/[^\s<>]+)/g));
+			if (urls.length === 0) continue;
+
+			const fragment = document.createDocumentFragment();
+			let lastIndex = 0;
+
+			for (const match of urls) {
+				const url = match[0];
+				const beforeText = textNode.nodeValue.substring(lastIndex, match.index);
+				if (beforeText) fragment.appendChild(document.createTextNode(beforeText));
+
+				const embedCard = document.createElement("div");
+				embedCard.className = "link-embed card mt-3 mb-3";
+				embedCard.innerHTML = `
+					<div class="card-body">
+						<a href="${url}" target="_blank" rel="noopener noreferrer" class="stretched-link">
+							<div class="text-muted small">${new URL(url).hostname}</div>
+							<div class="link-title fw-semibold">${url}</div>
+						</a>
+					</div>
+				`;
+				fragment.appendChild(embedCard);
+
+				const linkElement = document.createElement("a");
+				linkElement.href = url;
+				linkElement.target = "_blank";
+				linkElement.rel = "noopener noreferrer";
+				linkElement.textContent = url;
+				linkElement.className = "d-block mt-2 mb-3 js-embed-source-link";
+				fragment.appendChild(linkElement);
+
+				fetch(`https://api.microlink.io?url=${encodeURIComponent(url)}`)
+					.then((res) => res.json())
+					.then((data) => {
+						if (data.data) {
+							const { title, description, image } = data.data;
+							const body = embedCard.querySelector(".card-body");
+							body.innerHTML = `
+								<a href="${url}" target="_blank" rel="noopener noreferrer" class="stretched-link text-decoration-none text-body">
+									${image ? `<img src="${image.url}" alt="" class="img-fluid rounded mb-2" style="max-height: 200px; object-fit: cover;">` : ""}
+									<div class="text-muted small">${new URL(url).hostname}</div>
+									${title ? `<div class="link-title fw-semibold">${title}</div>` : ""}
+									${description ? `<div class="text-muted small">${description.substring(0, 100)}${description.length > 100 ? "..." : ""}</div>` : ""}
+								</a>
+							`;
+						}
+					})
+					.catch(() => {});
+
+				lastIndex = match.index + match[0].length;
+			}
+
+			const afterText = textNode.nodeValue.substring(lastIndex);
+			if (afterText) fragment.appendChild(document.createTextNode(afterText));
+
+			textNode.parentNode.replaceChild(fragment, textNode);
 		}
-	}
-
-	for (const textNode of nodesToProcess) {
-		const urls = Array.from(textNode.nodeValue.matchAll(/(https?:\/\/[^\s<>]+)/g));
-		if (urls.length === 0) continue;
-
-		const fragment = document.createDocumentFragment();
-		let lastIndex = 0;
-
-		for (const match of urls) {
-			const url = match[0];
-			const beforeText = textNode.nodeValue.substring(lastIndex, match.index);
-			if (beforeText) fragment.appendChild(document.createTextNode(beforeText));
-
-			// Create embed card for each URL
-			const embedCard = document.createElement("div");
-			embedCard.className = "link-embed card mt-3 mb-3";
-			embedCard.innerHTML = `
-				<div class="card-body">
-					<a href="${url}" target="_blank" rel="noopener noreferrer" class="stretched-link">
-						<div class="text-muted small">${new URL(url).hostname}</div>
-						<div class="link-title fw-semibold">${url}</div>
-					</a>
-				</div>
-			`;
-			fragment.appendChild(embedCard);
-
-			// Add a plain link below the embed
-			const linkElement = document.createElement("a");
-			linkElement.href = url;
-			linkElement.target = "_blank";
-			linkElement.rel = "noopener noreferrer";
-			linkElement.textContent = url;
-			linkElement.className = "d-block mt-2 mb-3 js-embed-source-link";
-			fragment.appendChild(linkElement);
-
-			// Fetch metadata from microlink service
-			fetch(`https://api.microlink.io?url=${encodeURIComponent(url)}`)
-				.then((res) => res.json())
-				.then((data) => {
-					if (data.data) {
-						const { title, description, image } = data.data;
-						const body = embedCard.querySelector(".card-body");
-						body.innerHTML = `
-							<a href="${url}" target="_blank" rel="noopener noreferrer" class="stretched-link text-decoration-none text-body">
-								${image ? `<img src="${image.url}" alt="" class="img-fluid rounded mb-2" style="max-height: 200px; object-fit: cover;">` : ""}
-								<div class="text-muted small">${new URL(url).hostname}</div>
-								${title ? `<div class="link-title fw-semibold">${title}</div>` : ""}
-								${description ? `<div class="text-muted small">${description.substring(0, 100)}${description.length > 100 ? "…" : ""}</div>` : ""}
-							</a>
-						`;
-					}
-				})
-				.catch(() => {}); // Silent fail if fetch doesn't work
-
-			lastIndex = match.index + match[0].length;
-		}
-
-		const afterText = textNode.nodeValue.substring(lastIndex);
-		if (afterText) fragment.appendChild(document.createTextNode(afterText));
-
-		textNode.parentNode.replaceChild(fragment, textNode);
 	}
 };
 
